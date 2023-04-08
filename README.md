@@ -1,4 +1,5 @@
 RabbitMQ Docker Installation
+
 This repository contains scripts and files to automate the installation of RabbitMQ in a Docker container using Ubuntu/Debian.
 
 - Prerequisites: 
