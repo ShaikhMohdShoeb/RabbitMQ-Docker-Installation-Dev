@@ -1,0 +1,36 @@
+FROM ubuntu:20.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+# This will make sure printing in the Screen when running in dettached mode
+ENV PYTHONUNBUFFERED=1
+
+ARG PATH_RABBIT_INSTALL=/tmp/rabbit_install/
+
+ARG PATH_RABBIT_APP_PYTHON=/opt/rabbit_python/
+
+RUN mkdir $PATH_RABBIT_INSTALL
+
+COPY cloudsmith.sh $PATH_RABBIT_INSTALL
+
+RUN chmod +x ${PATH_RABBIT_INSTALL}cloudsmith.sh
+
+RUN apt-get update && \
+    apt-get install -y sudo && \
+    sudo apt-get update && \
+    sudo apt-get install -y python3 python3-pip htop less zip gzip && \
+    sudo apt-get clean
+
+RUN ${PATH_RABBIT_INSTALL}cloudsmith.sh
+
+RUN service rabbitmq-server start
+
+RUN mkdir $PATH_RABBIT_APP_PYTHON
+
+WORKDIR $PATH_RABBIT_APP_PYTHON
+
+RUN pwd
+
+RUN pip install pika
+
+COPY *.py $PATH_RABBIT_APP_PYTHON
