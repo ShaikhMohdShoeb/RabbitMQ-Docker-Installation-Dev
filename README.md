@@ -43,7 +43,7 @@ build-rbtmq-docker.sh: This script builds the RabbitMQ Docker image using the Do
 **consumer.py:** A Python script from the official RabbitMQ tutorial that receives messages from RabbitMQ. It uses the pika package to connect to RabbitMQ and receive messages.
 
 ## Usage
-Modify the producer.py and consumer.py files in the tutorial-one-python directory to send and receive messages specific to your use case.
+Modify the producer.py and consumer.py files in the Producer_consumer_API's directory to send and receive messages specific to your use case.
 
 
 
