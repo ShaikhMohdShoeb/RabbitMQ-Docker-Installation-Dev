@@ -30,7 +30,7 @@ docker run -d -p 5672:5672 rabbitmq-docker
 
 - Verify that RabbitMQ is running by visiting the RabbitMQ management console at http://:15672. The default username and password are "guest".
 
-## This repository contains the following files:
+## This repository contains:
 **Dockerfile:** A Dockerfile that installs RabbitMQ in a Docker container using Ubuntu 20.04 as a base image. It also installs necessary packages such as sudo, python3, python3-pip, htop, less, zip, gzip, and pika Python package.
 
 **cloudsmith.sh:** This script installs the RabbitMQ package and its dependencies from the Cloudsmith repository. It is called by the build-rbtmq-docker.sh script.
